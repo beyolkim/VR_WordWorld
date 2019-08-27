@@ -49,6 +49,7 @@ namespace IBM.Watsson.Examples
         #endregion
 
 
+
         private int _recordingRoutine = 0;
         private string _microphoneID = null;
         private AudioClip _recording = null;
@@ -56,6 +57,7 @@ namespace IBM.Watsson.Examples
         private int _recordingHZ = 22050;
 
         private SpeechToTextService _service;
+
 
         void Start()
         {
@@ -99,7 +101,8 @@ namespace IBM.Watsson.Examples
             {
                 if (value && !_service.IsListening)
                 {
-                    _service.RecognizeModel = (string.IsNullOrEmpty(_recognizeModel) ? "en-US_BroadbandModel" : _recognizeModel);
+                    //_service.RecognizeModel = (string.IsNullOrEmpty(_recognizeModel) ? "en-US_BroadbandModel" : _recognizeModel);
+                    _service.RecognizeModel = (string.IsNullOrEmpty(_recognizeModel) ? "ko-KR_BroadbandModel" : _recognizeModel);
                     _service.DetectSilence = true;
                     _service.EnableWordConfidence = true;
                     _service.EnableTimestamps = true;
@@ -213,9 +216,12 @@ namespace IBM.Watsson.Examples
                 {
                     foreach (var alt in res.alternatives)
                     {
-                        string text = string.Format("{0} ({1}, {2:0.00})\n", alt.transcript, res.final ? "Final" : "Interim", alt.confidence);
+                        //string text = string.Format("{0} ({1}, {2:0.00})\n", alt.transcript, res.final ? "Final" : "Interim", alt.confidence);
+                        string text = string.Format("{0}", alt.transcript, res.final ? "Final" : "Interim", alt.confidence);
                         Log.Debug("ExampleStreaming.OnRecognize()", text);
                         ResultsField.text = text;
+
+
                     }
 
                     if (res.keywords_result != null && res.keywords_result.keyword != null)
