@@ -48,6 +48,7 @@ namespace IBM.Watsson.Examples
         private string _recognizeModel;
         #endregion
 
+        public TextMesh text_3D;
 
 
         private int _recordingRoutine = 0;
@@ -220,7 +221,7 @@ namespace IBM.Watsson.Examples
                         string text = string.Format("{0}", alt.transcript, res.final ? "Final" : "Interim", alt.confidence);
                         Log.Debug("ExampleStreaming.OnRecognize()", text);
                         ResultsField.text = text;
-                        
+                        text_3D.text = text;
 
 
                     }
