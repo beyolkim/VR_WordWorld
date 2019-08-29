@@ -44,16 +44,16 @@ public class LaserCaster : MonoBehaviour
         if (Physics.Raycast(tr.position, tr.forward, out hit, range))
         {
             //라인렌더러 끝좌표 보정
-           // lineRenderer.SetPosition(1, new Vector3(0, 0, hit.distance));
+           lineRenderer.SetPosition(1, new Vector3(0, 0, hit.distance));
             //포인터의 끝좌표를 보정
-            //pointer.transform.localPosition = tr.localPositionn - Vector3.forward * (0.01f) + new Vector3(0, 0, hit.distance);
+            pointer.transform.localPosition = tr.localPosition - Vector3.forward * (0.01f) + new Vector3(0, 0, hit.distance);
             //포인터의 각도 수정
-           // pointer.transform.rotation = Quaternion.LookRotation(hit.normal);
+        //    pointer.transform.rotation = Quaternion.LookRotation(hit.normal);
         }
         else
         {
-            //pointer.transform.localPosition = tr.localPosition + new Vector3(0, 0, range);
-            //pointer.transform.LookAt(tr.position - pointer.transform.position);
+            pointer.transform.localPosition = tr.localPosition + new Vector3(0, 0, range);
+            // pointer.transform.LookAt(tr.position);
         }
 
         Grab();
@@ -107,7 +107,7 @@ public class LaserCaster : MonoBehaviour
 
         //pointer 생성
 
-        //pointer = Instantiate(pointerPrefab, transform.position + lineRenderer.GetPosition(1), Quaternion.identity, this.transform);
+        pointer = Instantiate(pointerPrefab, transform.position + lineRenderer.GetPosition(1), Quaternion.identity, transform); //마지막 transform은 부모
 
     }
 
