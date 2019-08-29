@@ -63,7 +63,7 @@ namespace IBM.Watsson.Examples
         void Start()
         {
             LogSystem.InstallDefaultReactors();
-            Runnable.Run(CreateService());
+            Runnable.Run(CreateService());   
         }
 
         private IEnumerator CreateService()
@@ -125,7 +125,7 @@ namespace IBM.Watsson.Examples
             }
         }
 
-        private void StartRecording()
+        public void StartRecording()
         {
             if (_recordingRoutine == 0)
             {
@@ -134,7 +134,7 @@ namespace IBM.Watsson.Examples
             }
         }
 
-        private void StopRecording()
+        public void StopRecording()
         {
             if (_recordingRoutine != 0)
             {

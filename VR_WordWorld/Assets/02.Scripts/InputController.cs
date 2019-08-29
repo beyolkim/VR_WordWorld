@@ -29,14 +29,15 @@ public class InputController : MonoBehaviour
             Debug.Log("Trigger Cliked !!!");
         }
         //트랙패드 터치
-        if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad))
+        if (OVRInput.Get(OVRInput.Touch.PrimaryTouchpad))
         {
             //트랙패드 터치 좌표값
             Vector2 pos = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
             Debug.LogFormat("Touch Postion x={0}, y={1}", pos.x, pos.y);
-
-
-            //MovePlayer();
+        }
+        //트랙패드 클릭
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad))
+        {
 
         }
 
@@ -46,36 +47,9 @@ public class InputController : MonoBehaviour
     {
         // dirX = 0;
         // dirZ = 0;
-        if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad))
+        if (OVRInput.Get(OVRInput.Touch.PrimaryTouchpad))
         {
             Vector2 vec = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
-
-            // var absX = Mathf.Abs(vec.x);
-            // var absY = Mathf.Abs(vec.y);
-            // if (absX > absY)
-            // {
-            //     if (vec.x > 0)
-            //     {
-            //         dirX += 1;
-            //     }
-            //     else
-            //     {
-            //         dirX -= 1;
-            //     }
-            // }
-            // else
-            // {
-            //     if (vec.y > 0)
-            //     {
-            //         dirZ += 1;
-            //     }
-            //     else 
-            //     {
-            //         dirZ -= 1;
-            //     }
-            // }
-            // Vector3 move = new Vector3(dirX * SpeedSide, 0, dirZ * SpeedForward);
-
             Vector3 _dir = new Vector3(vec.x, 0, vec.y);
             Vector3 dir = cam.transform.TransformDirection(_dir);
 
