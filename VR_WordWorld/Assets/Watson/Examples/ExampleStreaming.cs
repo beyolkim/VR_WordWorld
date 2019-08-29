@@ -129,7 +129,7 @@ namespace IBM.Watsson.Examples
             }
         }
 
-        private void StartRecording()
+        public void StartRecording()
         {
             if (_recordingRoutine == 0)
             {
@@ -138,7 +138,7 @@ namespace IBM.Watsson.Examples
             }
         }
 
-        private void StopRecording()
+        public void StopRecording()
         {
             if (_recordingRoutine != 0)
             {
