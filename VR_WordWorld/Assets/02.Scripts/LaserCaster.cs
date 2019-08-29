@@ -22,11 +22,6 @@ public class LaserCaster : MonoBehaviour
     //Raycast  충돌한 지점의 정보를 반환할 구조체(Structure)
     private RaycastHit hit;
 
-    private Ray ray;
-
-    private GameObject gg;
-    public GameObject test_text;
-
     void Start()
     {
         tr = GetComponent<Transform>();
@@ -34,8 +29,6 @@ public class LaserCaster : MonoBehaviour
         mt = Resources.Load<Material>("Line");
         //pointerPrefab = Resources.Load<GameObject>("Pointer");
         CreateLine();
-        InvokeRepeating("make_testText", 3.0f, 2f);
-
     }
 
     private void Update()
@@ -55,44 +48,9 @@ public class LaserCaster : MonoBehaviour
             pointer.transform.localPosition = tr.localPosition + new Vector3(0, 0, range);
             // pointer.transform.LookAt(tr.position);
         }
-
-        Grab();
     }
 
-
-    void make_testText()
-    {
-        Instantiate(test_text);
-
-    }
     //라인렌더러를 생성하는 함수
-
-
-    void Grab()
-    {
-        ray = new Ray(tr.position, tr.forward);
-        if (Physics.Raycast(ray, out hit, range))
-        {
-            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
-            {
-                if (hit.collider.gameObject.layer == 8)
-                {
-                    gg = hit.collider.gameObject;
-                }
-                gg.transform.SetParent(tr);
-                gg.GetComponent<Rigidbody>().isKinematic = true;
-            }
-            if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger))
-            {
-                Vector3 pos_now = gg.transform.position;
-                gg.transform.SetParent(null);
-                gg.transform.position = pos_now;
-                gg.GetComponent<Rigidbody>().isKinematic = false;
-
-            }
-        }
-    }
-
     void CreateLine()
     {
         lineRenderer = this.gameObject.AddComponent<LineRenderer>();

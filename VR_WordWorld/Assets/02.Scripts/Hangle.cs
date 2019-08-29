@@ -27,7 +27,7 @@ public class Hangle : MonoBehaviour
     void Start()
     {
         test_t = GetComponent<TextMesh>();
-    
+        
 
     }
 
