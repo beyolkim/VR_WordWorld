@@ -22,6 +22,11 @@ public class LaserCaster : MonoBehaviour
     //Raycast  충돌한 지점의 정보를 반환할 구조체(Structure)
     private RaycastHit hit;
 
+    private Ray ray;
+
+    private GameObject gg;
+    public GameObject test_text;
+
     void Start()
     {
         tr = GetComponent<Transform>();
@@ -29,6 +34,8 @@ public class LaserCaster : MonoBehaviour
         mt = Resources.Load<Material>("Line");
         //pointerPrefab = Resources.Load<GameObject>("Pointer");
         CreateLine();
+        InvokeRepeating("make_testText", 3.0f, 2f);
+
     }
 
     private void Update()
@@ -37,20 +44,55 @@ public class LaserCaster : MonoBehaviour
         if (Physics.Raycast(tr.position, tr.forward, out hit, range))
         {
             //라인렌더러 끝좌표 보정
-           lineRenderer.SetPosition(1, new Vector3(0, 0, hit.distance));
+           // lineRenderer.SetPosition(1, new Vector3(0, 0, hit.distance));
             //포인터의 끝좌표를 보정
-            pointer.transform.localPosition = tr.localPosition - Vector3.forward * (0.01f) + new Vector3(0, 0, hit.distance);
+            //pointer.transform.localPosition = tr.localPositionn - Vector3.forward * (0.01f) + new Vector3(0, 0, hit.distance);
             //포인터의 각도 수정
-        //    pointer.transform.rotation = Quaternion.LookRotation(hit.normal);
+           // pointer.transform.rotation = Quaternion.LookRotation(hit.normal);
         }
         else
         {
-            pointer.transform.localPosition = tr.localPosition + new Vector3(0, 0, range);
-            // pointer.transform.LookAt(tr.position);
+            //pointer.transform.localPosition = tr.localPosition + new Vector3(0, 0, range);
+            //pointer.transform.LookAt(tr.position - pointer.transform.position);
+        }
+
+        Grab();
+    }
+
+
+    void make_testText()
+    {
+        Instantiate(test_text);
+
+    }
+    //라인렌더러를 생성하는 함수
+
+
+    void Grab()
+    {
+        ray = new Ray(tr.position, tr.forward);
+        if (Physics.Raycast(ray, out hit, range))
+        {
+            if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
+            {
+                if (hit.collider.gameObject.layer == 8)
+                {
+                    gg = hit.collider.gameObject;
+                }
+                gg.transform.SetParent(tr);
+                gg.GetComponent<Rigidbody>().isKinematic = true;
+            }
+            if (OVRInput.GetUp(OVRInput.Button.PrimaryIndexTrigger))
+            {
+                Vector3 pos_now = gg.transform.position;
+                gg.transform.SetParent(null);
+                gg.transform.position = pos_now;
+                gg.GetComponent<Rigidbody>().isKinematic = false;
+
+            }
         }
     }
 
-    //라인렌더러를 생성하는 함수
     void CreateLine()
     {
         lineRenderer = this.gameObject.AddComponent<LineRenderer>();
@@ -65,7 +107,7 @@ public class LaserCaster : MonoBehaviour
 
         //pointer 생성
 
-        pointer = Instantiate(pointerPrefab, transform.position + lineRenderer.GetPosition(1), Quaternion.identity, transform); //마지막 transform은 부모
+        //pointer = Instantiate(pointerPrefab, transform.position + lineRenderer.GetPosition(1), Quaternion.identity, this.transform);
 
     }
 
