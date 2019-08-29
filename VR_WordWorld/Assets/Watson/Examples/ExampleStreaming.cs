@@ -49,11 +49,11 @@ namespace IBM.Watsson.Examples
         #endregion
 
         public TextMesh text_3D;
+        public GameObject On;
 
-
-        private int _recordingRoutine = 0;
-        private string _microphoneID = null;
-        private AudioClip _recording = null;
+        public int _recordingRoutine=0;
+        public string _microphoneID = null;
+        public AudioClip _recording = null;
         private int _recordingBufferSize = 1;
         private int _recordingHZ = 22050;
 
@@ -62,9 +62,12 @@ namespace IBM.Watsson.Examples
 
         void Start()
         {
+            
             LogSystem.InstallDefaultReactors();
-            Runnable.Run(CreateService());   
+            Runnable.Run(CreateService());
+           
         }
+
 
         private IEnumerator CreateService()
         {
@@ -91,7 +94,7 @@ namespace IBM.Watsson.Examples
             _service = new SpeechToTextService(credentials);
             _service.StreamMultipart = true;
 
-            Active = true;
+            Active = false;
             StartRecording();
         }
 
@@ -118,6 +121,7 @@ namespace IBM.Watsson.Examples
                     _service.WordAlternativesThreshold = null;
                     _service.StartListening(OnRecognize, OnRecognizeSpeaker);
                 }
+                
                 else if (!value && _service.IsListening)
                 {
                     _service.StopListening();
