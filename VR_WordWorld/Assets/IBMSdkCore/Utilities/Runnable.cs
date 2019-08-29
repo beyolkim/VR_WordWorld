@@ -168,8 +168,6 @@ namespace IBM.Cloud.SDK.Utilities
                 foreach (var r in routines)
                     r.MoveNext();
             }
-
-
         }
     }
 }
