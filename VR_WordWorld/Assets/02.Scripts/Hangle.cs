@@ -27,7 +27,7 @@ public class Hangle : MonoBehaviour
     void Start()
     {
         test_t = GetComponent<TextMesh>();
-    
+        
 
     }
 
@@ -42,8 +42,8 @@ public class Hangle : MonoBehaviour
 
     private void Update()
     {
-        
         Sum_WordBreak();
+
     }
 
     public static string WordSum(string sFirstWord, string sMiddleWord, string sLastWord)
