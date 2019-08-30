@@ -12,6 +12,7 @@ public class InputController : MonoBehaviour
     Transform tr;
     private Transform cam;
     private GameObject Birth_Text;
+    private GameObject voice_text;
     bool check_text=false;
     //녹화 버튼 활성화 변수들
     public IBM.Watsson.Examples.ExampleStreaming voice;
@@ -21,9 +22,12 @@ public class InputController : MonoBehaviour
 
     void Start()
     {
-        tr = GetComponent<Transform>();
+        tr = GetComponent<Transform>(); 
         cam = tr.Find("OVRCameraRig/TrackingSpace/CenterEyeAnchor").GetComponent<Transform>();
         Birth_Text = Resources.Load<GameObject>("3D_TEXT");
+
+
+        
 
     }
 
@@ -47,14 +51,13 @@ public class InputController : MonoBehaviour
                 {
                     check_text = !check_text;
                     Debug.Log("3dtext가 만들어지고 있니?");
-        
                     GameObject voice_text = Instantiate(Birth_Text);
+                    //voice_text.GetComponent<TextMesh>().text = voice.ResultsField.text;
                     voice_text.transform.SetParent(cam);
                     voice_text.transform.localPosition = voice_dir;
-                    // voice_text.transform.LookAt(cam);
                     voice_text.transform.localRotation = Quaternion.identity;
-
-                    //voice.text_3D.text = voice_text.GetComponent<TextMesh>().text;
+                    
+                   
                 }
 
                 test_Record_Image.SetActive(true);    // test_Record_Image 활성화

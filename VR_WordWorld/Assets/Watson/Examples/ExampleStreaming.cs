@@ -225,7 +225,7 @@ namespace IBM.Watsson.Examples
                         string text = string.Format("{0}", alt.transcript, res.final ? "Final" : "Interim", alt.confidence);
                         Log.Debug("ExampleStreaming.OnRecognize()", text);
                         ResultsField.text = text;
-                        text_3D.text = text;
+                        //text_3D.text = ResultsField.text;
 
 
                     }
