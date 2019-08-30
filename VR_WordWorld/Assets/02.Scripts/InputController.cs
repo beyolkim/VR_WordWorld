@@ -54,7 +54,7 @@ public class InputController : MonoBehaviour
                     // voice_text.transform.LookAt(cam);
                     voice_text.transform.localRotation = Quaternion.identity;
 
-                    voice.text_3D.text = voice_text.GetComponent<TextMesh>().text;
+                    //voice.text_3D.text = voice_text.GetComponent<TextMesh>().text;
                 }
 
                 test_Record_Image.SetActive(true);    // test_Record_Image 활성화
