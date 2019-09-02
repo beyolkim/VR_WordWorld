@@ -83,8 +83,8 @@ public class LaserCaster : MonoBehaviour
             gg.transform.SetParent(null);
             // gg.transform.position = pos_now;
             gg.GetComponent<Rigidbody>().isKinematic = false;
-            gg.GetComponent<Rigidbody>().velocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTrackedRemote) * power;
-            gg.GetComponent<Rigidbody>().angularVelocity = OVRInput.GetLocalControllerAngularVelocity(OVRInput.Controller.RTrackedRemote);
+            // gg.GetComponent<Rigidbody>().velocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTrackedRemote) * power;
+            // gg.GetComponent<Rigidbody>().angularVelocity = OVRInput.GetLocalControllerAngularVelocity(OVRInput.Controller.RTrackedRemote);
 
             gg = null;
         }

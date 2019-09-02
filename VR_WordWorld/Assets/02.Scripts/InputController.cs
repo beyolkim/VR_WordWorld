@@ -35,7 +35,7 @@ public class InputController : MonoBehaviour
     {
 
         //녹화버튼 On/Off
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) || Input.GetMouseButtonDown(0))
         {
             Debug.Log("Button Cliked !!!");
             if (isWastssonEnable == false)
@@ -94,7 +94,7 @@ public class InputController : MonoBehaviour
             voice_text.GetComponent<TextMesh>().text = voice.ResultsField.text;
         }
 
-        if (OVRInput.Get(OVRInput.Button.Back) || Input.GetMouseButtonDown(1))
+        if (/*OVRInput.Get(OVRInput.Button.Back) ||*/ Input.GetMouseButtonDown(1))
         {
             
             Debug.Log("Word_break");
