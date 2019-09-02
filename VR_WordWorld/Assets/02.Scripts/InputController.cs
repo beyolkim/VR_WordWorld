@@ -104,7 +104,7 @@ public class InputController : MonoBehaviour
             
             check_text = !check_text;
             voice.ResultsField.text = "----------";
-            Destroy(voice_text,0.01f);
+            Destroy(voice_text,0.5f);
         }
 
         MovePlayer();
