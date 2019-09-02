@@ -48,7 +48,7 @@ namespace IBM.Watsson.Examples
         private string _recognizeModel;
         #endregion
 
-        public TextMesh text_3D;
+        public static TextMesh text_3D;
         public GameObject On;
 
         public int _recordingRoutine=0;
