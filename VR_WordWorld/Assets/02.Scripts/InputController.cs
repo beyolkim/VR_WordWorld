@@ -31,7 +31,7 @@ public class InputController : MonoBehaviour
     {
 
         //녹화버튼 On/Off
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) || Input.GetMouseButtonDown(0))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad))
         {
             Debug.Log("Button Cliked !!!");
             if (isWastssonEnable == false)
