@@ -4,5 +4,11 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/01.Scenes/IntrosScene.unity
+    guid: e8669e8b34641dd45a74920aa4a5ef1f
+  - enabled: 1
+    path: Assets/01.Scenes/WordWorld_Star.unity
+    guid: 88b6085265212eb47a9f285d638b93d2
   m_configObjects: {}

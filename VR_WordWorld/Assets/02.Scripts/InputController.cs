@@ -19,9 +19,13 @@ public class InputController : MonoBehaviour
     bool isWastssonEnable = false;
     //임시 녹음버튼
     public GameObject test_Record_Image;
-
+    public GameObject introUI;
+    
 
     private Hangle break_word;
+
+ 
+
     //public static GameObject voice_text;
     void Start()
     {
