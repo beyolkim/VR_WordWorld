@@ -39,7 +39,7 @@ public class LaserCaster : MonoBehaviour
         pointer = Instantiate(_pointer);
  
         CreateLine();
-        InvokeRepeating("make_testText", 3.0f, 2f);
+        //InvokeRepeating("make_testText", 3.0f, 2f);
 
     }
 
@@ -64,7 +64,7 @@ public class LaserCaster : MonoBehaviour
     }
     void make_testText()
     {
-        Instantiate(test_text);
+        //Instantiate(test_text);
     }
 
     void Grab()
