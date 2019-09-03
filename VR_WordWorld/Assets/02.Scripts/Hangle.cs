@@ -96,87 +96,68 @@ public class Hangle : MonoBehaviour
             { 
                 case 'ㄱ':
                     Debug.Log("3D텍스트 ㄱ");
-                    Instantiate(m3D_FirstWordTbl[0]);
+                    Instantiate(m3D_FirstWordTbl[0], cam.position, this.transform.rotation);
 
-                    m3D_FirstWordTbl[0].transform.position = cam.position;
                     //m3D_FirstWordTbl[0].transform.position = cam.position;
-
+                    
                     //Vector3 pos_now = m3D_FirstWordTbl[0].transform.position;
                     //m3D_FirstWordTbl[0].transform.SetParent(null);
 
                     break;
                 case 'ㄲ':
                     Debug.Log("3D텍스트 ㄲ");
-                    Instantiate(m3D_FirstWordTbl[1]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[1], cam.position, this.transform.rotation); break;
                 case 'ㄴ':
                     Debug.Log("3D텍스트 ㄴ");
-                    Instantiate(m3D_FirstWordTbl[2]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[2], cam.position, this.transform.rotation); break;
                 case 'ㄷ':
                     Debug.Log("3D텍스트 ㄷ");
-                    Instantiate(m3D_FirstWordTbl[3]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[3], cam.position, this.transform.rotation); break;
                 case 'ㄸ':
                     Debug.Log("3D텍스트 ㄸ");
-                    Instantiate(m3D_FirstWordTbl[4]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[4], cam.position, this.transform.rotation); break;
                 case 'ㄹ':
                     Debug.Log("3D텍스트 ㄹ");
-                    Instantiate(m3D_FirstWordTbl[5]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[5], cam.position, this.transform.rotation); break;
                 case 'ㅁ':
                     Debug.Log("3D텍스트 ㅁ");
-                    Instantiate(m3D_FirstWordTbl[6]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[6], cam.position, this.transform.rotation); break;
                 case 'ㅂ':
                     Debug.Log("3D텍스트 ㅂ");
-                    Instantiate(m3D_FirstWordTbl[7]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[7], cam.position, this.transform.rotation); break;
                 case 'ㅃ':
                     Debug.Log("3D텍스트 ㅃ");
-                    Instantiate(m3D_FirstWordTbl[8]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[8], cam.position, this.transform.rotation); break;
                 case 'ㅅ':
                     Debug.Log("3D텍스트 ㅅ");
-                    Instantiate(m3D_FirstWordTbl[9]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[9], cam.position, this.transform.rotation); break;
                 case 'ㅆ':
                     Debug.Log("3D텍스트 ㅆ");
-                    Instantiate(m3D_FirstWordTbl[10]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[10], cam.position, this.transform.rotation); break;
                 case 'ㅇ':
                     Debug.Log("3D텍스트 ㅇ");
-                    Instantiate(m3D_FirstWordTbl[11]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[11], cam.position, this.transform.rotation); break;
                 case 'ㅈ':
                     Debug.Log("3D텍스트 ㅈ");
-                    Instantiate(m3D_FirstWordTbl[12]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[12], cam.position, this.transform.rotation); break;
                 case 'ㅉ':
                     Debug.Log("3D텍스트 ㅉ");
-                    Instantiate(m3D_FirstWordTbl[13]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[13], cam.position, this.transform.rotation); break;
                 case 'ㅊ':
                     Debug.Log("3D텍스트 ㅊ");
-                    Instantiate(m3D_FirstWordTbl[14]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[14], cam.position, this.transform.rotation); break;
                 case 'ㅋ':
                     Debug.Log("3D텍스트 ㅋ");
-                    Instantiate(m3D_FirstWordTbl[15]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[15], cam.position, this.transform.rotation); break;
                 case 'ㅌ':
                     Debug.Log("3D텍스트 ㅌ");
-                    Instantiate(m3D_FirstWordTbl[16]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[16], cam.position, this.transform.rotation); break;
                 case 'ㅍ':
                     Debug.Log("3D텍스트 ㅍ");
-                    Instantiate(m3D_FirstWordTbl[17]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[17], cam.position, this.transform.rotation); break;
                 case 'ㅎ':
                     Debug.Log("3D텍스트 ㅎ");
-                    Instantiate(m3D_FirstWordTbl[18]);
-                    break;
+                    Instantiate(m3D_FirstWordTbl[18], cam.position, this.transform.rotation); break;
 
             }
 
@@ -184,89 +165,101 @@ public class Hangle : MonoBehaviour
             {
                 case 'ㅏ':
                     Debug.Log("3D텍스트 ㅏ");
-                    Instantiate(m3D_MiddleWordTbl[0]);
-                    m3D_MiddleWordTbl[0].transform.position = cam.position;
-
+                    Instantiate(m3D_MiddleWordTbl[0], cam.position, this.transform.rotation);
+                    
                     break;
                 case 'ㅐ':
                     Debug.Log("3D텍스트 ㅐ");
-                    Instantiate(m3D_MiddleWordTbl[1]);
+                    Instantiate(m3D_MiddleWordTbl[1], cam.position, this.transform.rotation);
+
                     break;
                 case 'ㅑ':
                     Debug.Log("3D텍스트 ㅑ");
-                    Instantiate(m3D_MiddleWordTbl[2]);
+                    Instantiate(m3D_MiddleWordTbl[2], cam.position, this.transform.rotation);
+
                     break;
                 case 'ㅒ':
                     Debug.Log("3D텍스트 ㅒ");
-                    Instantiate(m3D_MiddleWordTbl[3]);
+                    Instantiate(m3D_MiddleWordTbl[3], cam.position, this.transform.rotation);
+
                     break;
                 case 'ㅓ':
                     Debug.Log("3D텍스트 ㅓ");
-                    Instantiate(m3D_MiddleWordTbl[4]);
+                    Instantiate(m3D_MiddleWordTbl[4], cam.position, this.transform.rotation);
+
                     break;
                 case 'ㅔ':
                     Debug.Log("3D텍스트 ㅔ");
-                    Instantiate(m3D_MiddleWordTbl[5]);
+                    Instantiate(m3D_MiddleWordTbl[5], cam.position, this.transform.rotation);
+
                     break;
                 case 'ㅕ':
                     Debug.Log("3D텍스트 ㅕ");
-                    Instantiate(m3D_MiddleWordTbl[6]);
+                    Instantiate(m3D_MiddleWordTbl[6], cam.position, this.transform.rotation);
+
                     break;
                 case 'ㅖ':
                     Debug.Log("3D텍스트 ㅖ");
-                    Instantiate(m3D_MiddleWordTbl[7]);
+                    Instantiate(m3D_MiddleWordTbl[7], cam.position, this.transform.rotation);
+
                     break;
                 case 'ㅗ':
                     Debug.Log("3D텍스트 ㅗ");
-                    Instantiate(m3D_MiddleWordTbl[8]);
+                    Instantiate(m3D_MiddleWordTbl[8], cam.position, this.transform.rotation);
+
                     break;
                 case 'ㅘ':
                     Debug.Log("3D텍스트 ㅘ");
-                    Instantiate(m3D_MiddleWordTbl[9]);
+                    Instantiate(m3D_MiddleWordTbl[9], cam.position, this.transform.rotation);
+
                     break;
                 case 'ㅙ':
                     Debug.Log("3D텍스트 ㅙ");
-                    Instantiate(m3D_MiddleWordTbl[10]);
+                    Instantiate(m3D_MiddleWordTbl[10], cam.position, this.transform.rotation);
+
                     break;
                 case 'ㅚ':
                     Debug.Log("3D텍스트 ㅚ");
-                    Instantiate(m3D_MiddleWordTbl[11]);
+                    Instantiate(m3D_MiddleWordTbl[11], cam.position, this.transform.rotation);
+
                     break;
                 case 'ㅛ':
                     Debug.Log("3D텍스트 ㅛ");
-                    Instantiate(m3D_MiddleWordTbl[12]);
+                    Instantiate(m3D_MiddleWordTbl[12], cam.position, this.transform.rotation);
+
                     break;
                 case 'ㅜ':
                     Debug.Log("3D텍스트 ㅜ");
-                    Instantiate(m3D_MiddleWordTbl[13]);
+                    Instantiate(m3D_MiddleWordTbl[13], cam.position, this.transform.rotation);
+
                     break;
                 case 'ㅝ':
                     Debug.Log("3D텍스트 ㅝ");
-                    Instantiate(m3D_MiddleWordTbl[14]);
+                    Instantiate(m3D_MiddleWordTbl[14], cam.position, this.transform.rotation);
                     break;
                 case 'ㅞ':
                     Debug.Log("3D텍스트 ㅞ");
-                    Instantiate(m3D_MiddleWordTbl[15]);
+                    Instantiate(m3D_MiddleWordTbl[15], cam.position, this.transform.rotation);
                     break;
                 case 'ㅟ':
                     Debug.Log("3D텍스트 ㅟ");
-                    Instantiate(m3D_MiddleWordTbl[16]);
+                    Instantiate(m3D_MiddleWordTbl[16], cam.position, this.transform.rotation);
                     break;
                 case 'ㅠ':
                     Debug.Log("3D텍스트 ㅠ");
-                    Instantiate(m3D_MiddleWordTbl[17]);
+                    Instantiate(m3D_MiddleWordTbl[17], cam.position, this.transform.rotation);
                     break;
                 case 'ㅡ':
                     Debug.Log("3D텍스트 ㅡ");
-                    Instantiate(m3D_MiddleWordTbl[18]);
+                    Instantiate(m3D_MiddleWordTbl[18], cam.position, this.transform.rotation);
                     break;
                 case 'ㅢ':
                     Debug.Log("3D텍스트 ㅢ");
-                    Instantiate(m3D_MiddleWordTbl[19]);
+                    Instantiate(m3D_MiddleWordTbl[19], cam.position, this.transform.rotation);
                     break;
                 case 'ㅣ':
                     Debug.Log("3D텍스트 ㅣ");
-                    Instantiate(m3D_MiddleWordTbl[20]);
+                    Instantiate(m3D_MiddleWordTbl[20], cam.position, this.transform.rotation);
                     break;
             }
 
@@ -274,7 +267,7 @@ public class Hangle : MonoBehaviour
             {
                 case 'ㄱ':
                     Debug.Log("3D텍스트 ㄱ");
-                    Instantiate(m3D_LastWordTbl[0]);
+                    Instantiate(m3D_LastWordTbl[0], cam.position, this.transform.rotation);
                     break;
                 case 'ㄲ':
                     Debug.Log("3D텍스트 ㄲ");

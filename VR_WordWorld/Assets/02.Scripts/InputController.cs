@@ -11,9 +11,9 @@ public class InputController : MonoBehaviour
     public float Speed = 12;
     Transform tr;
     private Transform cam;
-    private GameObject Birth_Text;
-    private GameObject voice_text;
-    bool check_text=false;
+    public GameObject Birth_Text;
+    public GameObject voice_text;
+    public bool check_text=false;
     //녹화 버튼 활성화 변수들
     public IBM.Watsson.Examples.ExampleStreaming voice;
     bool isWastssonEnable = false;
@@ -22,13 +22,21 @@ public class InputController : MonoBehaviour
 
 
     private Hangle break_word;
+
+    //LaserCaster 사용 스크립트 및 변수
+
+    private bool breaking = false;
+    private LaserCaster break_laser;
+    public GameObject Laser_Script;
+
     //public static GameObject voice_text;
     void Start()
     {
         tr = GetComponent<Transform>(); 
         cam = tr.Find("OVRCameraRig/TrackingSpace/CenterEyeAnchor").GetComponent<Transform>();
         Birth_Text = Resources.Load<GameObject>("3D_TEXT");
- 
+        break_laser = GameObject.FindGameObjectWithTag("RController").GetComponent<LaserCaster>();
+
     }
 
     void Update()
@@ -93,21 +101,45 @@ public class InputController : MonoBehaviour
         {
             voice_text.GetComponent<TextMesh>().text = voice.ResultsField.text;
         }
-
-        if (/*OVRInput.Get(OVRInput.Button.Back) ||*/ Input.GetMouseButtonDown(1))
+        if (OVRInput.Get(OVRInput.Button.Back) || Input.GetMouseButtonDown(1))
         {
-            
-            Debug.Log("Word_break");
-            break_word = voice_text.gameObject.AddComponent<Hangle>();
-            break_word.check_break = false;
 
-            
-            check_text = !check_text;
-            voice.ResultsField.text = "----------";
-            Destroy(voice_text,0.5f);
+            Debug.Log("Word_break");
+
+            Break_Word();
+
         }
 
+        //if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) /*|| Input.GetMouseButtonDown(1)*/)
+        //{
+        //    Debug.Log("1st_breakbreakbreak");
+        //    Debug.Log(tr.position);
+        //    break_laser.P_ray = new Ray(break_laser.tr.position, break_laser.tr.forward);
+        //    Debug.Log("2st_breakbreakbreak");
+        //    if (Physics.Raycast(break_laser.P_ray, out break_laser.hit, break_laser.range))
+        //    {
+        //        if (break_laser.hit.collider.CompareTag("RecordingText"))
+        //        {
+        //            Debug.Log("breakbreakbreak");
+        //            Break_Word();
+        //        }
+
+        //    }
+
+        //}
+
         MovePlayer();
+    }
+
+    void Break_Word()
+    {
+        break_word = voice_text.gameObject.AddComponent<Hangle>();
+        break_word.check_break = false;
+
+        check_text = !check_text;
+        voice.ResultsField.text = "----------";
+        Destroy(voice_text, 0.2f);
+
     }
     void MovePlayer()
     {
