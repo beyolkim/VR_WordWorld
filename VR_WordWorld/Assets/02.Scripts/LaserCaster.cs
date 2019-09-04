@@ -15,7 +15,7 @@ public class LaserCaster : MonoBehaviour
     public Color defaultColor = Color.white;
     private GameObject pointer;
     //Raycast  충돌한 지점의 정보를 반환할 구조체(Structure)
-    private RaycastHit hit;
+    public RaycastHit hit;
     private Ray ray;
 
     private GameObject gg;
