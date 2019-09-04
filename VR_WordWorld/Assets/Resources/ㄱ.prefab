@@ -13,10 +13,9 @@ GameObject:
   - component: {fileID: 9191539263708465339}
   - component: {fileID: 6239646586871025446}
   - component: {fileID: 3743145381509740379}
-  - component: {fileID: -2673852269250534769}
   m_Layer: 8
   m_Name: "\u3131"
-  m_TagString: TEXT
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +28,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7361988252752510750}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 2, z: 2.8}
+  m_LocalPosition: {x: 0, y: 13, z: 19}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -88,8 +87,8 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7361988252752510750}
   serializedVersion: 2
-  m_Mass: 1
-  m_Drag: 10
+  m_Mass: 0.1
+  m_Drag: 0
   m_AngularDrag: 0
   m_UseGravity: 1
   m_IsKinematic: 0
@@ -103,24 +102,9 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7361988252752510750}
-  m_Material: {fileID: 13400000, guid: ec9ccc3a29f8e7148b14921a65ce538d, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.0248594, y: 1.7340496, z: 1.5}
   m_Center: {x: 0, y: 1.2979649, z: 0.75}
---- !u!114 &-2673852269250534769
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7361988252752510750}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ede54ea2cb531b34b9eedf4fac3d4598, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  enterSfx: {fileID: 8300000, guid: 338cf6862cbb5ca41b574b6f51abbc18, type: 3}
-  clickSfx: {fileID: 8300000, guid: 1fd130240478727438c8c14be7fae1e6, type: 3}
-  HighlightColor: {r: 1, g: 1, b: 1, a: 1}

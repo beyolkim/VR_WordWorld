@@ -12,6 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20553fac56ec59645857c0732b787431, type: 3}
   m_Name: OVRBuildConfig
   m_EditorClassIdentifier: 
-  androidSDKPath: C:\Users\user\AppData\Local\Android\sdk
+<<<<<<< HEAD
+  androidSDKPath: 
+=======
+  androidSDKPath: C:\Users\user\AppData\Local\Android\Sdk
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
   gradlePath: 
   jdkPath: 
