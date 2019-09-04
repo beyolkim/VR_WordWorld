@@ -53,7 +53,7 @@ public class InputController : MonoBehaviour
     {
 
         //녹화버튼 On/Off
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) /*|| Input.GetMouseButtonDown(0)*/)
         {
             Debug.Log("Button Cliked !!!");
             if (isWastssonEnable == false)
@@ -118,7 +118,7 @@ public class InputController : MonoBehaviour
         
  
         // 트리거 버튼을 이용하 글자 블록 부시기
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && breaking == true)
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && breaking == true /*|| Input.GetMouseButtonDown(1)*/)
         {
 
             Debug.Log("1st_breakbreakbreak");
