@@ -14,7 +14,8 @@ public class Hangle : MonoBehaviour
 
     public Transform tr;
     private Transform cam;
-
+    private Transform subcam_01;
+    private Transform subcam_02;
     Vector3 voice_dir;
 
     TextMesh test_t;
@@ -55,7 +56,8 @@ public class Hangle : MonoBehaviour
         Debug.Log(test_t.text);
         voice_dir = new Vector3(0, 0, 19);
         cam = this.GetComponent<Transform>();
-      
+        //cam.position = cam.position + new Vector3(0,30,0);//모르겄다
+     //   subcam_01.position = cam.position + new Vector3(10, 0, 0);
  
         for (int i = 0; i < m3D_FirstWordTbl.Length; i++)
         {

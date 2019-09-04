@@ -14,11 +14,9 @@ public class InputController : MonoBehaviour
     public GameObject Birth_Text;
     public GameObject voice_text;
     public bool check_text=false;
-   
     //녹화 버튼 활성화 변수들
     public IBM.Watsson.Examples.ExampleStreaming voice;
     bool isWastssonEnable = false;
-    
     //임시 녹음버튼
     public GameObject test_Record_Image;
     public GameObject introUI;
@@ -28,7 +26,7 @@ public class InputController : MonoBehaviour
 
     //LaserCaster 사용 스크립트 및 변수
 
-    private bool breaking = false;
+    //private bool breaking = false;
     private LaserCaster break_laser;
     public GameObject Laser_Script;
 
@@ -52,7 +50,7 @@ public class InputController : MonoBehaviour
             if (isWastssonEnable == false)
             {
                 Debug.Log("OnOnOn!!!");
-                breaking = false;
+
                 Vector3 _dir = new Vector3(0, 0, 20); // vec를 vec3값으로 변환(_dir은 로컬 좌표) 
                 Vector3 voice_dir = new Vector3(0, 0, 19); 
 
@@ -67,14 +65,17 @@ public class InputController : MonoBehaviour
                     voice_text.transform.localRotation = Quaternion.identity;
                
                     voice_text.GetComponent<TextMesh>().text = voice.ResultsField.text;
-                    
+
+
                 }
 
                 test_Record_Image.SetActive(true);    // test_Record_Image 활성화
+                
                 test_Record_Image.transform.SetParent(cam);  //test_Record_Image 위치 카메라 위치로 수정
                 test_Record_Image.transform.localPosition = _dir;
                 test_Record_Image.transform.localRotation = Quaternion.identity;
-                
+
+
                 isWastssonEnable = !isWastssonEnable;
                 voice.Active = true;
 
@@ -84,31 +85,34 @@ public class InputController : MonoBehaviour
             {
                 Debug.Log("OffOffOff!!!");
                 isWastssonEnable = !isWastssonEnable;
-                breaking = true;
                 voice.Active = false;
                 test_Record_Image.SetActive(false);
 
             }
 
         }
-
-        //트랙패드 터치 좌표값
-
         if (OVRInput.Get(OVRInput.Touch.PrimaryTouchpad))
         {
+            //트랙패드 터치 좌표값
             Vector2 pos = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
             Debug.LogFormat("Touch Postion x={0}, y={1}", pos.x, pos.y);
 
         }
-        //보이스 레코드 갱신화
-        if (check_text == true)
+        if(check_text == true) // 보이스 레코드 갱신화
         {
             voice_text.GetComponent<TextMesh>().text = voice.ResultsField.text;
         }
         
- 
-        // 트리거 버튼을 이용하 글자 블록 부시기
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && breaking == true /*|| Input.GetMouseButtonDown(1)*/)
+        //if (OVRInput.Get(OVRInput.Button.Back) /*|| Input.GetMouseButtonDown(1)*/)
+        //{
+
+        //    Debug.Log("Word_break");
+
+        //    Break_Word();
+
+        //}
+
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) /*|| Input.GetMouseButtonDown(1)*/)
         {
             Debug.Log("1st_breakbreakbreak");
             Debug.Log(tr.position);
