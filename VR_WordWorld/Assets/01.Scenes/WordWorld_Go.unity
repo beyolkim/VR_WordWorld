@@ -2367,15 +2367,114 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
+<<<<<<< HEAD
+=======
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &1175059021
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1175059024}
+  - component: {fileID: 1175059023}
+  - component: {fileID: 1175059022}
+  - component: {fileID: 1175059025}
+  m_Layer: 0
+  m_Name: 3D_TEXT
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!102 &1175059022
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175059021}
+  m_Text: '--------'
+  m_OffsetZ: 0
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 0
+  m_TabSize: 4
+  m_FontSize: 26
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 12800000, guid: a97758022539d7e4880e76ed3ee5b56d, type: 3}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294053370
+--- !u!23 &1175059023
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175059021}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: a97758022539d7e4880e76ed3ee5b56d, type: 3}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!4 &1175059024
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1175059021}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.24, y: 3.01, z: 3.43}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1175059025
 MonoBehaviour:
+<<<<<<< HEAD
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
+=======
 >>>>>>> parent of f6a9409... 9_04 몰아주기 끝
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_GameObject: {fileID: 1239664838}
   m_ConnectedBody: {fileID: 0}
@@ -2386,6 +2485,8 @@ MonoBehaviour:
   m_MassScale: 1
   m_ConnectedMassScale: 1
 =======
+=======
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
   m_GameObject: {fileID: 1175059021}
   m_Enabled: 0
   m_EditorHideFlags: 0
@@ -2395,6 +2496,9 @@ MonoBehaviour:
   check_break: 1
   tr: {fileID: 0}
   f_text: {fileID: 105314480}
+<<<<<<< HEAD
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
+=======
 >>>>>>> parent of f6a9409... 9_04 몰아주기 끝
 --- !u!1001 &1239896315
 PrefabInstance:
@@ -2544,7 +2648,10 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1391679366
 GameObject:
@@ -2576,6 +2683,9 @@ Transform:
   - {fileID: 673568766}
   m_Father: {fileID: 0}
   m_RootOrder: 9
+<<<<<<< HEAD
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
+=======
 >>>>>>> parent of f6a9409... 9_04 몰아주기 끝
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1428860024
@@ -2643,6 +2753,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+<<<<<<< HEAD
 <<<<<<< HEAD
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1457815758
@@ -2737,6 +2848,8 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
+=======
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
 =======
 >>>>>>> parent of f6a9409... 9_04 몰아주기 끝
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3138,7 +3251,10 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1826601560
 GameObject:
@@ -3267,6 +3383,9 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 8
+<<<<<<< HEAD
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
+=======
 >>>>>>> parent of f6a9409... 9_04 몰아주기 끝
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1863902089

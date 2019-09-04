@@ -1858,6 +1858,9 @@ MonoBehaviour:
 =======
   tr: {fileID: 0}
   range: 30
+<<<<<<< HEAD
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
+=======
 >>>>>>> parent of f6a9409... 9_04 몰아주기 끝
   power: 5
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
@@ -2580,6 +2583,9 @@ MonoBehaviour:
   Birth_Text: {fileID: 0}
   voice_text: {fileID: 0}
   check_text: 0
+<<<<<<< HEAD
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
+=======
 >>>>>>> parent of f6a9409... 9_04 몰아주기 끝
   voice: {fileID: 1653813162}
   isWastssonEnable: 0

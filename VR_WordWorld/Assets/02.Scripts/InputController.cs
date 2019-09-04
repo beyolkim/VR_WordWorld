@@ -40,7 +40,11 @@ public class InputController : MonoBehaviour
 
         //녹화버튼 On/Off
 <<<<<<< HEAD
+<<<<<<< HEAD
         if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) || Input.GetMouseButtonDown(0))
+=======
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) /*|| Input.GetMouseButtonDown(0)*/)
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
 =======
         if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) /*|| Input.GetMouseButtonDown(0)*/)
 >>>>>>> parent of f6a9409... 9_04 몰아주기 끝
