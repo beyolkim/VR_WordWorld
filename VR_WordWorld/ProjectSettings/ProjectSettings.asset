@@ -164,13 +164,8 @@ PlayerSettings:
     Standalone: com.oculus.UnitySample
   buildNumber: {}
   AndroidBundleVersionCode: 1
-<<<<<<< HEAD
   AndroidMinSdkVersion: 26
-  AndroidTargetSdkVersion: 26
-=======
-  AndroidMinSdkVersion: 28
-  AndroidTargetSdkVersion: 28
->>>>>>> parent of f6a9409... 9_04 몰아주기 끝
+  AndroidTargetSdkVersion: 0
   AndroidPreferredInstallLocation: 0
   aotOptions: 
   stripEngineCode: 1
