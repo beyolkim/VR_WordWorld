@@ -42,9 +42,9 @@ public class ObjectController : MonoBehaviour, IPointerEnterHandler, IPointerCli
     void Mission()
     {
         Vector3 pos = tr.position;
-        if (tr.IsChildOf(rController.transform))
+        if (!tr.IsChildOf(rController.transform))
         {
-            if (pos.y > 10f)
+            if (pos.y > 8f)
             {
                 Debug.Log("참 잘했어요!!"); //파티클 자리
                 particle.GetComponent<ParticleSystem>().Play();
