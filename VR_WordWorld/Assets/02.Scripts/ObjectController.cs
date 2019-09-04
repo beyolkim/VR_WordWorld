@@ -37,18 +37,20 @@ public class ObjectController : MonoBehaviour, IPointerEnterHandler, IPointerCli
         {
             laserCaster.Drop();
         }
-        Mission();
+        if (tr.position.y >= 8f) {
+            laserCaster.Drop();
+        }
+        // Mission();
     }
     void Mission()
     {
         Vector3 pos = tr.position;
-        if (!tr.IsChildOf(rController.transform))
-        {
-            if (pos.y > 8f)
-            {
-                Debug.Log("참 잘했어요!!"); //파티클 자리
-                particle.GetComponent<ParticleSystem>().Play();
-            }
+        if (pos.y > 8f && !tr.IsChildOf(rController.transform))
+        {            
+                Debug.Log("참 잘했어요!!");                 
+                particle.GetComponent<ParticleSystem>().Play(); 
+                //미션 성공 파티클
+            
         }
     }
 

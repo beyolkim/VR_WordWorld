@@ -74,7 +74,7 @@ public class LaserCaster : MonoBehaviour
     }
     void make_testText()
     {
-        //Instantiate(test_text);
+        Instantiate(test_text);
     }
 
     void Grab()
