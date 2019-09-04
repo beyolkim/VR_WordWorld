@@ -2,35 +2,53 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class LaserCaster : MonoBehaviour
 {
     //동적으로 생성할 라인렌더러 컴포넌트 저장할 변수
     private LineRenderer lineRenderer;
-    private Transform tr;
+    public Transform tr;
     // 레이저의 거리
+
     public float range = 10.0f;
-    public float power = 5f;
     public Color defaultColor = Color.white;
     private GameObject pointer;
     //Raycast  충돌한 지점의 정보를 반환할 구조체(Structure)
-    private RaycastHit hit;
-
+    public RaycastHit hit;
     private Ray ray;
 
     private GameObject gg;
     public GameObject test_text;
     private bool grabbing = false;
 
+
+    private GameObject prevText;
+    private GameObject currText;
+    public AudioClip deleteSfx;
+    private AudioSource audioSource;
+
+    //break 함수!!
+
+    public Ray P_ray
+    {
+        get { return ray; }
+        set { ray = value; }
+    }
+
+
     void Start()
     {
         tr = GetComponent<Transform>();
         //프로젝트 뷰의 Resources 폴더에 있는 Pointer을 로드
         GameObject _pointer = Resources.Load<GameObject>("Pointer");
-        pointer = Instantiate(_pointer);        
+        pointer = Instantiate(_pointer);
+
+        audioSource = GetComponent<AudioSource>();
 
         CreateLine();
-        //InvokeRepeating("make_testText", 3.0f, 2f);
+        // InvokeRepeating("make_testText", 3.0f, 2f);
+
 
     }
 
@@ -50,16 +68,17 @@ public class LaserCaster : MonoBehaviour
         {
             Delete();
         }
+        EnterObject();
+
 
     }
     void make_testText()
     {
-        //Instantiate(test_text);
+        Instantiate(test_text);
     }
 
     void Grab()
     {
-
         grabbing = true;
         ray = new Ray(tr.position, tr.forward);
         if (Physics.Raycast(ray, out hit, range))
@@ -67,11 +86,12 @@ public class LaserCaster : MonoBehaviour
             if (hit.collider.CompareTag("TEXT"))
             {
                 gg = hit.collider.gameObject;
+                ExecuteEvents.Execute(gg, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
+
             }
             gg.transform.SetParent(tr);
             gg.GetComponent<Rigidbody>().isKinematic = true;
         }
-
 
     }
     public void Drop()
@@ -83,21 +103,24 @@ public class LaserCaster : MonoBehaviour
             gg.transform.SetParent(null);
             // gg.transform.position = pos_now;
             gg.GetComponent<Rigidbody>().isKinematic = false;
-            // gg.GetComponent<Rigidbody>().velocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTrackedRemote) * power;
-            // gg.GetComponent<Rigidbody>().angularVelocity = OVRInput.GetLocalControllerAngularVelocity(OVRInput.Controller.RTrackedRemote);
+            gg.GetComponent<Rigidbody>().velocity = OVRInput.GetLocalControllerVelocity(OVRInput.Controller.RTrackedRemote);
+            gg.GetComponent<Rigidbody>().angularVelocity = OVRInput.GetLocalControllerAngularVelocity(OVRInput.Controller.RTrackedRemote);
 
             gg = null;
         }
 
     }
 
+   
+
     void Delete()
     {
-        ray = new Ray(tr.position, tr.forward);
-        if (Physics.Raycast(ray, out hit, range))
+        // ray = new Ray(tr.position, tr.forward);
+        if (Physics.Raycast(tr.position, tr.forward, out hit, range))
         {
             if (hit.collider.CompareTag("TEXT"))
             {
+                audioSource.PlayOneShot(deleteSfx);
                 Destroy(hit.collider.gameObject);
             }
         }
@@ -134,6 +157,34 @@ public class LaserCaster : MonoBehaviour
         {
             pointer.transform.position = tr.position + (tr.forward * range); //물체에 맞지 않았을 때 포인터의 위치는 라인 끝점에
             pointer.transform.rotation = Quaternion.LookRotation(tr.forward);
+        }
+    }
+    void EnterObject()
+    {
+        PointerEventData data = new PointerEventData(EventSystem.current);
+        if (Physics.Raycast(tr.position, tr.forward, out hit, range) && hit.collider.CompareTag("TEXT"))
+        {
+            currText = hit.collider.gameObject;
+            if (currText != prevText)
+            {
+                ExecuteEvents.Execute(currText, data, ExecuteEvents.pointerEnterHandler);
+                ExecuteEvents.Execute(prevText, data, ExecuteEvents.pointerExitHandler);
+                prevText = currText;
+            }
+        }
+        else
+        {
+            ExitObject();
+        }
+    }
+    void ExitObject()
+    {
+        PointerEventData data = new PointerEventData(EventSystem.current);
+
+        if (prevText != null)
+        {
+            ExecuteEvents.Execute(prevText, data, ExecuteEvents.pointerExitHandler);
+            prevText = null;
         }
     }
 
