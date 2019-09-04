@@ -8,7 +8,7 @@ public class InputController : MonoBehaviour
 {
 
     //Move 변수들
-    public float Speed = 12;
+    public float Speed = 6;
     Transform tr;
     private Transform cam;
     public GameObject Birth_Text;
@@ -26,7 +26,7 @@ public class InputController : MonoBehaviour
 
     //LaserCaster 사용 스크립트 및 변수
 
-    private bool breaking = false;
+    //private bool breaking = false;
     private LaserCaster break_laser;
     public GameObject Laser_Script;
 
@@ -44,7 +44,7 @@ public class InputController : MonoBehaviour
     {
 
         //녹화버튼 On/Off
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) || Input.GetMouseButtonDown(0))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) /*|| Input.GetMouseButtonDown(0)*/)
         {
             Debug.Log("Button Cliked !!!");
             if (isWastssonEnable == false)
@@ -63,7 +63,7 @@ public class InputController : MonoBehaviour
                     voice_text.transform.SetParent(cam);
                     voice_text.transform.localPosition = voice_dir;
                     voice_text.transform.localRotation = Quaternion.identity;
-                    //voice_text.GetComponent<TextMesh>().text = voice.text_3D.text;
+               
                     voice_text.GetComponent<TextMesh>().text = voice.ResultsField.text;
 
 
@@ -102,32 +102,33 @@ public class InputController : MonoBehaviour
         {
             voice_text.GetComponent<TextMesh>().text = voice.ResultsField.text;
         }
-        if (OVRInput.Get(OVRInput.Button.Back) || Input.GetMouseButtonDown(1))
-        {
-
-            Debug.Log("Word_break");
-
-            Break_Word();
-
-        }
-
-        //if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) /*|| Input.GetMouseButtonDown(1)*/)
+        
+        //if (OVRInput.Get(OVRInput.Button.Back) /*|| Input.GetMouseButtonDown(1)*/)
         //{
-        //    Debug.Log("1st_breakbreakbreak");
-        //    Debug.Log(tr.position);
-        //    break_laser.P_ray = new Ray(break_laser.tr.position, break_laser.tr.forward);
-        //    Debug.Log("2st_breakbreakbreak");
-        //    if (Physics.Raycast(break_laser.P_ray, out break_laser.hit, break_laser.range))
-        //    {
-        //        if (break_laser.hit.collider.CompareTag("RecordingText"))
-        //        {
-        //            Debug.Log("breakbreakbreak");
-        //            Break_Word();
-        //        }
 
-        //    }
+        //    Debug.Log("Word_break");
+
+        //    Break_Word();
 
         //}
+
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) /*|| Input.GetMouseButtonDown(1)*/)
+        {
+            Debug.Log("1st_breakbreakbreak");
+            Debug.Log(tr.position);
+            break_laser.P_ray = new Ray(break_laser.tr.position, break_laser.tr.forward);
+            Debug.Log("2st_breakbreakbreak");
+            if (Physics.Raycast(break_laser.P_ray, out break_laser.hit, break_laser.range))
+            {
+                if (break_laser.hit.collider.CompareTag("RecordingText"))
+                {
+                    Debug.Log("breakbreakbreak");
+                    Break_Word();
+                }
+
+            }
+
+        }
 
         MovePlayer();
     }

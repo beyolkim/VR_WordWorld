@@ -525,6 +525,9 @@ MonoBehaviour:
   check_break: 0
   tr: {fileID: 0}
   f_text: {fileID: 0}
+  word_1st: {fileID: 0}
+  word_2nd: {fileID: 0}
+  word_3rd: {fileID: 0}
 --- !u!114 &248149661
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2297,12 +2300,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591c1697569ce004995f06c728c68d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 12
+  Speed: 6
+  tr: {fileID: 0}
+  cam: {fileID: 0}
   Birth_Text: {fileID: 0}
   voice_text: {fileID: 0}
   check_text: 0
   voice: {fileID: 1653813162}
+  isWastssonEnable: 0
   test_Record_Image: {fileID: 1757503466}
+  introUI: {fileID: 0}
+  break_word: {fileID: 0}
+  breaking: 0
+  break_laser: {fileID: 0}
   Laser_Script: {fileID: 0}
 --- !u!136 &2100453370
 CapsuleCollider:
