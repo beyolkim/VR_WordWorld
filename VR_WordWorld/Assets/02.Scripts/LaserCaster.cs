@@ -8,7 +8,7 @@ public class LaserCaster : MonoBehaviour
 {
     //동적으로 생성할 라인렌더러 컴포넌트 저장할 변수
     private LineRenderer lineRenderer;
-    public Transform tr;
+    private Transform tr;
     // 레이저의 거리
     public float range = 10.0f;
     public Color defaultColor = Color.white;
@@ -19,6 +19,7 @@ public class LaserCaster : MonoBehaviour
     private GameObject gg;
     public GameObject test_text;
     private bool grabbing = false;
+
 
     private GameObject prevText;
     private GameObject currText;
@@ -38,9 +39,11 @@ public class LaserCaster : MonoBehaviour
         tr = GetComponent<Transform>();
         //프로젝트 뷰의 Resources 폴더에 있는 Pointer을 로드
         GameObject _pointer = Resources.Load<GameObject>("Pointer");
+
         pointer = Instantiate(_pointer);
 
         audioSource = GetComponent<AudioSource>();
+
 
         CreateLine();
         // InvokeRepeating("make_testText", 3.0f, 2f);
@@ -65,7 +68,6 @@ public class LaserCaster : MonoBehaviour
         }
         EnterObject();
 
-
     }
     void make_testText()
     {
@@ -87,6 +89,7 @@ public class LaserCaster : MonoBehaviour
             gg.transform.SetParent(tr);
             gg.GetComponent<Rigidbody>().isKinematic = true;
         }
+
     }
     public void Drop()
     {
@@ -104,8 +107,6 @@ public class LaserCaster : MonoBehaviour
         }
 
     }
-
-   
 
     void Delete()
     {
