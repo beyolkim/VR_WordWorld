@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6883499429985052376}
   - component: {fileID: 3984047540041598960}
   - component: {fileID: 3984047540041598961}
-  m_Layer: 5
+  - component: {fileID: 4601898529124693133}
+  m_Layer: 0
   m_Name: 3D_TEXT
-  m_TagString: Untagged
+  m_TagString: RecordingText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -96,3 +97,16 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294053370
+--- !u!65 &4601898529124693133
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3984047540041598962}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.53, y: 2.06, z: 0.54}
+  m_Center: {x: 0, y: 0, z: 0}

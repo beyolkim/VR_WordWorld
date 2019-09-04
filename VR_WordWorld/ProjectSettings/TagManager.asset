@@ -8,6 +8,8 @@ TagManager:
   - TEXT
   - Sound
   - Particles
+  - RecordingText
+
   layers:
   - Default
   - TransparentFX

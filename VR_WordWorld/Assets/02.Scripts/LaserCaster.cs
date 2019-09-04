@@ -8,22 +8,34 @@ public class LaserCaster : MonoBehaviour
 {
     //동적으로 생성할 라인렌더러 컴포넌트 저장할 변수
     private LineRenderer lineRenderer;
-    private Transform tr;
+    public Transform tr;
     // 레이저의 거리
+
     public float range = 10.0f;
     public Color defaultColor = Color.white;
     private GameObject pointer;
     //Raycast  충돌한 지점의 정보를 반환할 구조체(Structure)
     private RaycastHit hit;
     private Ray ray;
+
     private GameObject gg;
     public GameObject test_text;
     private bool grabbing = false;
+
 
     private GameObject prevText;
     private GameObject currText;
     public AudioClip deleteSfx;
     private AudioSource audioSource;
+
+    //break 함수!!
+
+    public Ray P_ray
+    {
+        get { return ray; }
+        set { ray = value; }
+    }
+
 
     void Start()
     {
@@ -31,10 +43,12 @@ public class LaserCaster : MonoBehaviour
         //프로젝트 뷰의 Resources 폴더에 있는 Pointer을 로드
         GameObject _pointer = Resources.Load<GameObject>("Pointer");
         pointer = Instantiate(_pointer);
+
         audioSource = GetComponent<AudioSource>();
 
         CreateLine();
         // InvokeRepeating("make_testText", 3.0f, 2f);
+
 
     }
 
@@ -56,10 +70,11 @@ public class LaserCaster : MonoBehaviour
         }
         EnterObject();
 
+
     }
     void make_testText()
     {
-        Instantiate(test_text);
+        //Instantiate(test_text);
     }
 
     void Grab()
@@ -77,6 +92,7 @@ public class LaserCaster : MonoBehaviour
             gg.transform.SetParent(tr);
             gg.GetComponent<Rigidbody>().isKinematic = true;
         }
+
     }
     public void Drop()
     {
@@ -94,6 +110,8 @@ public class LaserCaster : MonoBehaviour
         }
 
     }
+
+   
 
     void Delete()
     {
