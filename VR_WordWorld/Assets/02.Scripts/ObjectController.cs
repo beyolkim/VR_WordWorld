@@ -19,5 +19,38 @@ public class ObjectController : MonoBehaviour
         {
             laserCaster.Drop();
         }
+<<<<<<< HEAD
     } 
+=======
+        Mission();
+    }
+    void Mission()
+    {
+        Vector3 pos = tr.position;
+        if (tr.IsChildOf(rController.transform))
+        {
+            if (pos.y > 10f)
+            {
+                Debug.Log("참 잘했어요!!"); //파티클 자리
+                particle.GetComponent<ParticleSystem>().Play();
+            }
+        }
+    }
+
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        _audio.PlayOneShot(enterSfx);
+        rend.material.color = HighlightColor;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        _audio.PlayOneShot(clickSfx);
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        rend.material.color = NormalColor;
+    }
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
 }

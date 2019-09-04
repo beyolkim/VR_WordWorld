@@ -39,7 +39,11 @@ public class InputController : MonoBehaviour
     {
 
         //녹화버튼 On/Off
+<<<<<<< HEAD
         if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) || Input.GetMouseButtonDown(0))
+=======
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) /*|| Input.GetMouseButtonDown(0)*/)
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
         {
             Debug.Log("Button Cliked !!!");
             if (isWastssonEnable == false)
@@ -97,6 +101,28 @@ public class InputController : MonoBehaviour
         {
             voice_text.GetComponent<TextMesh>().text = voice.ResultsField.text;
         }
+<<<<<<< HEAD
+=======
+        
+ 
+        // 트리거 버튼을 이용하 글자 블록 부시기
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && breaking == true /*|| Input.GetMouseButtonDown(1)*/)
+        {
+
+            Debug.Log("1st_breakbreakbreak");
+            Debug.Log(tr.position);
+            break_laser.P_ray = new Ray(break_laser.tr.position, break_laser.tr.forward);
+            Debug.Log("2st_breakbreakbreak");
+            if (Physics.Raycast(break_laser.P_ray, out break_laser.hit, break_laser.range))
+            {
+                if (break_laser.hit.collider.CompareTag("RecordingText"))
+                {
+                    Debug.Log("breakbreakbreak");
+                    Break_Word();
+                }
+
+            }
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
 
         if (/*OVRInput.Get(OVRInput.Button.Back) ||*/ Input.GetMouseButtonDown(1))
         {

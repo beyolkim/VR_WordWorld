@@ -1853,7 +1853,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 23284de2aff56fb4c869ccd6d556e782, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   range: 10
+=======
+  tr: {fileID: 0}
+  range: 30
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
   power: 5
   defaultColor: {r: 1, g: 1, b: 1, a: 1}
   test_text: {fileID: 7549946535116152219, guid: 99277d0c125c55a4aba460e3940eb3a2,
@@ -2566,9 +2571,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 591c1697569ce004995f06c728c68d1d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Speed: 12
+=======
+  Speed: 6
+  tr: {fileID: 0}
+  cam: {fileID: 0}
+  Birth_Text: {fileID: 0}
+  voice_text: {fileID: 0}
+  check_text: 0
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
   voice: {fileID: 1653813162}
+  isWastssonEnable: 0
   test_Record_Image: {fileID: 1757503466}
+<<<<<<< HEAD
+=======
+  introUI: {fileID: 0}
+  break_word: {fileID: 0}
+  breaking: 0
+  break_laser: {fileID: 0}
+  Laser_Script: {fileID: 0}
+>>>>>>> parent of f6a9409... 9_04 몰아주기 끝
 --- !u!136 &2100453370
 CapsuleCollider:
   m_ObjectHideFlags: 0
