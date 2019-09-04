@@ -6,10 +6,6 @@ TagManager:
   tags:
   - RController
   - TEXT
-  - Sound
-  - Particles
-  - RecordingText
-
   layers:
   - Default
   - TransparentFX
