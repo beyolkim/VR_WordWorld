@@ -9,7 +9,10 @@ TagManager:
   - Sound
   - Particles
   - RecordingText
-
+  - Button_Start
+  - Button_Settings
+  - Button_Quit
+  - Button_Back
   layers:
   - Default
   - TransparentFX
@@ -20,7 +23,7 @@ TagManager:
   - 
   - 
   - test
-  - 
+  - Button
   - 
   - 
   - 

@@ -6,6 +6,6 @@ public class StartButton : MonoBehaviour
 {
     public void ChangingGameScene()
     {
-        SceneManager.LoadScene("WordWorld_Star");
+        SceneManager.LoadScene("WordWorld_Yun");
     }
 }

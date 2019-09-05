@@ -33,26 +33,26 @@ public class ObjectController : MonoBehaviour, IPointerEnterHandler, IPointerCli
 
     void FixedUpdate()
     {
-        if (tr.position.y <= 0.1f)
+        if (tr.position.y <= 0.2f)
         {
             laserCaster.Drop();
         }
-        if (tr.position.y >= 8f) {
-            laserCaster.Drop();
-        }
+        //if (tr.position.y >= 8f) {
+        //    laserCaster.Drop();
+        //}
         // Mission();
     }
-    void Mission()
-    {
-        Vector3 pos = tr.position;
-        if (pos.y > 8f && !tr.IsChildOf(rController.transform))
-        {            
-                Debug.Log("참 잘했어요!!");                 
-                particle.GetComponent<ParticleSystem>().Play(); 
-                //미션 성공 파티클
+    //void Mission()
+    //{
+    //    Vector3 pos = tr.position;
+    //    if (pos.y > 8f && !tr.IsChildOf(rController.transform))
+    //    {            
+    //            Debug.Log("참 잘했어요!!");                 
+    //            particle.GetComponent<ParticleSystem>().Play(); 
+    //            //미션 성공 파티클
             
-        }
-    }
+    //    }
+    //}
 
     public void OnPointerEnter(PointerEventData eventData)
     {

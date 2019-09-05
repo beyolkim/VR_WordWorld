@@ -11,7 +11,7 @@ public class LaserCaster : MonoBehaviour
     public Transform tr;
     // 레이저의 거리
 
-    public float range = 10.0f;
+    public float range = 30.0f;
     public Color defaultColor = Color.white;
     private GameObject pointer;
     //Raycast  충돌한 지점의 정보를 반환할 구조체(Structure)
@@ -81,16 +81,20 @@ public class LaserCaster : MonoBehaviour
     {
         grabbing = true;
         ray = new Ray(tr.position, tr.forward);
-        if (Physics.Raycast(ray, out hit, range))
+        if (Physics.Raycast(ray, out hit, range, ~(1<<9)))
         {
             if (hit.collider.CompareTag("TEXT"))
             {
                 gg = hit.collider.gameObject;
                 ExecuteEvents.Execute(gg, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
-
-            }
-            gg.transform.SetParent(tr);
-            gg.GetComponent<Rigidbody>().isKinematic = true;
+                gg.transform.SetParent(tr);
+                gg.GetComponent<Rigidbody>().isKinematic = true;
+            }            
+        }
+        if(Physics.Raycast(ray, out hit, range, 1<<9))
+        {
+            Debug.Log("Button Click!");
+            ExecuteEvents.Execute(hit.collider.gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
         }
 
     }
@@ -110,8 +114,6 @@ public class LaserCaster : MonoBehaviour
         }
 
     }
-
-   
 
     void Delete()
     {
@@ -162,14 +164,17 @@ public class LaserCaster : MonoBehaviour
     void EnterObject()
     {
         PointerEventData data = new PointerEventData(EventSystem.current);
-        if (Physics.Raycast(tr.position, tr.forward, out hit, range) && hit.collider.CompareTag("TEXT"))
+        if (Physics.Raycast(tr.position, tr.forward, out hit, range))
         {
-            currText = hit.collider.gameObject;
-            if (currText != prevText)
+            if (hit.collider.CompareTag("TEXT"))
             {
-                ExecuteEvents.Execute(currText, data, ExecuteEvents.pointerEnterHandler);
-                ExecuteEvents.Execute(prevText, data, ExecuteEvents.pointerExitHandler);
-                prevText = currText;
+                currText = hit.collider.gameObject;
+                if (currText != prevText)
+                {
+                    ExecuteEvents.Execute(currText, data, ExecuteEvents.pointerEnterHandler);
+                    ExecuteEvents.Execute(prevText, data, ExecuteEvents.pointerExitHandler);
+                    prevText = currText;
+                }
             }
         }
         else
@@ -186,6 +191,6 @@ public class LaserCaster : MonoBehaviour
             ExecuteEvents.Execute(prevText, data, ExecuteEvents.pointerExitHandler);
             prevText = null;
         }
-    }
+    }    
 
 }

@@ -1,12 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.UI;
 using IBM.Cloud.SDK.Utilities;
 
 public class InputController : MonoBehaviour
 {
+    //애니 락
 
+    private int hashIsLook;
+    private Animator anim;
     //Move 변수들
     public float Speed = 6;
     Transform tr;
@@ -25,8 +28,9 @@ public class InputController : MonoBehaviour
     //임시 녹음버튼
     public GameObject test_Record_Image;
     public GameObject introUI;
-    
-
+    private GameObject Text_3d_child;
+    public Text test_Record_Image_child;
+    private Color colortext;
     private Hangle break_word;
 
     //LaserCaster 사용 스크립트 및 변수
@@ -35,6 +39,7 @@ public class InputController : MonoBehaviour
     private LaserCaster break_laser;
     public GameObject Laser_Script;
 
+    public GameObject particle_01;
     //public static GameObject voice_text;
     void Start()
     {
@@ -43,7 +48,7 @@ public class InputController : MonoBehaviour
         cc = GetComponent<CharacterController>();
         cam = tr.Find("OVRCameraRig/TrackingSpace/CenterEyeAnchor").GetComponent<Transform>();
         Birth_Text = Resources.Load<GameObject>("3D_TEXT");
-
+        
         break_laser = GameObject.FindGameObjectWithTag("RController").GetComponent<LaserCaster>();
 
 
@@ -53,15 +58,16 @@ public class InputController : MonoBehaviour
     {
 
         //녹화버튼 On/Off
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad))
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad) /*|| Input.GetMouseButtonDown(0)*/)
         {
             Debug.Log("Button Cliked !!!");
             if (isWastssonEnable == false)
             {
                 Debug.Log("OnOnOn!!!");
                 breaking = false;
-                Vector3 _dir = new Vector3(0, 0, 20); // vec를 vec3값으로 변환(_dir은 로컬 좌표) 
+                Vector3 _dir = new Vector3(0, 2.8f, 20); // vec를 vec3값으로 변환(_dir은 로컬 좌표) 
                 Vector3 voice_dir = new Vector3(0, 0, 19);
+                particle_01.SetActive(false);
 
                 if (check_text == false)
                 {
@@ -74,8 +80,11 @@ public class InputController : MonoBehaviour
                     voice_text.transform.localRotation = Quaternion.identity;
                
                     voice_text.GetComponent<TextMesh>().text = voice.ResultsField.text;
-                    
+                    colortext = voice_text.GetComponent<TextMesh>().color;
+                    colortext = Color.white;
+
                 }
+                test_Record_Image_child.text = "Recording";
 
                 test_Record_Image.SetActive(true);    // test_Record_Image 활성화
 
@@ -94,8 +103,9 @@ public class InputController : MonoBehaviour
                 isWastssonEnable = !isWastssonEnable;
                 breaking = true;
                 voice.Active = false;
-                test_Record_Image.SetActive(false);
-
+                //test_Record_Image.SetActive(false);
+                test_Record_Image_child.text = "Break!!";
+                colortext = Color.red;
             }
 
         }
@@ -114,12 +124,25 @@ public class InputController : MonoBehaviour
 
         {
             voice_text.GetComponent<TextMesh>().text = voice.ResultsField.text;
+
         }
-        
- 
+
+
+
+
+        //if (Input.GetMouseButtonDown(1))
+        //{
+        //    Break_Word();
+        //}
+
+
+
+
+
+
         // 트리거 버튼을 이용하 글자 블록 부시기
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && breaking == true)
-        {
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger) && breaking == true )
+        { 
 
             Debug.Log("1st_breakbreakbreak");
             Debug.Log(tr.position);
@@ -127,6 +150,9 @@ public class InputController : MonoBehaviour
             Debug.Log("2st_breakbreakbreak");
             if (Physics.Raycast(break_laser.P_ray, out break_laser.hit, break_laser.range))
             {
+                anim = voice_text.GetComponent<Animator>();
+                hashIsLook = Animator.StringToHash("IsLook");
+                anim.SetBool(hashIsLook, true);
                 if (break_laser.hit.collider.CompareTag("RecordingText"))
                 {
                     Debug.Log("breakbreakbreak");
@@ -134,8 +160,6 @@ public class InputController : MonoBehaviour
                 }
 
             }
-
-
         }
 
         MovePlayer();
@@ -144,11 +168,20 @@ public class InputController : MonoBehaviour
     void Break_Word()
     {
         break_word = voice_text.gameObject.AddComponent<Hangle>();
-        break_word.check_break = false;
+        Vector3 particle_dir = new Vector3(0, 0, 19);
+        voice.ResultsField.text = "말을해주세요";
+        particle_01.SetActive(true);
+        particle_01.transform.SetParent(cam);
+        particle_01.transform.localPosition = particle_dir;
+        test_Record_Image.SetActive(false);
 
+        break_word.check_break = false;
         check_text = !check_text;
-        voice.ResultsField.text = "----------";
-        Destroy(voice_text, 0.2f);
+
+        Destroy(voice_text, 0.15f);
+        
+
+
 
     }
     void MovePlayer()
