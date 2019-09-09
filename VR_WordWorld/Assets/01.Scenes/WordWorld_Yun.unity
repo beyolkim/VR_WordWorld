@@ -25288,8 +25288,7 @@ MonoBehaviour:
   Speed: 6
   voice: {fileID: 1653813162}
   test_Record_Image: {fileID: 1757503466}
-  introUI: {fileID: 0}
-  test_Record_Image_child: {fileID: 2004638721}
+  test_Record_Image_child_Text: {fileID: 2004638721}
   Laser_Script: {fileID: 0}
   particle_01: {fileID: 1999363881}
 --- !u!136 &2100453370

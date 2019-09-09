@@ -6,6 +6,10 @@ using UnityEngine.EventSystems;
 
 public class LaserCaster : MonoBehaviour
 {
+    private int hashIsLook;
+    private Animator anim;
+
+
     //동적으로 생성할 라인렌더러 컴포넌트 저장할 변수
     private LineRenderer lineRenderer;
     public Transform tr;
@@ -55,7 +59,7 @@ public class LaserCaster : MonoBehaviour
     private void Update()
     {
         Pointer();
-
+        Ani_Text();
         if (!grabbing && OVRInput.GetDown(OVRInput.Button.PrimaryIndexTrigger))
         {
             Grab();
@@ -72,16 +76,13 @@ public class LaserCaster : MonoBehaviour
 
 
     }
-    void make_testText()
-    {
-        Instantiate(test_text);
-    }
+
 
     void Grab()
     {
         grabbing = true;
         ray = new Ray(tr.position, tr.forward);
-        if (Physics.Raycast(ray, out hit, range, ~(1<<9)))
+        if (Physics.Raycast(ray, out hit, range, ~(1 << 9)))
         {
             if (hit.collider.CompareTag("TEXT"))
             {
@@ -89,9 +90,9 @@ public class LaserCaster : MonoBehaviour
                 ExecuteEvents.Execute(gg, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
                 gg.transform.SetParent(tr);
                 gg.GetComponent<Rigidbody>().isKinematic = true;
-            }            
+            }
         }
-        if(Physics.Raycast(ray, out hit, range, 1<<9))
+        if (Physics.Raycast(ray, out hit, range, 1 << 9))
         {
             Debug.Log("Button Click!");
             ExecuteEvents.Execute(hit.collider.gameObject, new PointerEventData(EventSystem.current), ExecuteEvents.pointerClickHandler);
@@ -125,6 +126,7 @@ public class LaserCaster : MonoBehaviour
                 audioSource.PlayOneShot(deleteSfx);
                 Destroy(hit.collider.gameObject);
             }
+
         }
     }
 
@@ -145,6 +147,28 @@ public class LaserCaster : MonoBehaviour
 
 
     }
+
+    void Ani_Text() // 활성화는 되나 비화설화는 안됨(false가 안된다)
+    {
+
+        if (Physics.Raycast(tr.position, tr.forward, out hit, range))
+        {
+            anim = hit.collider.gameObject.GetComponent<Animator>();
+            hashIsLook = Animator.StringToHash("IsLook");
+            if (hit.collider.CompareTag("RecordingText"))
+            {
+                anim.SetBool(hashIsLook, true);
+            }
+        }
+        else
+        {
+            anim = hit.collider.gameObject.GetComponent<Animator>();
+            hashIsLook = Animator.StringToHash("IsLook");
+            anim.SetBool(hashIsLook, false);
+
+        }
+
+    }
     void Pointer()
     {
         //(광선의 발사원점, 발사방향, 결과값, 거리)
@@ -154,12 +178,20 @@ public class LaserCaster : MonoBehaviour
 
             pointer.transform.position = hit.point - Vector3.forward * (0.01f); //라인이 물체에 맞으면 그 위치에 포인터 생성
             pointer.transform.rotation = Quaternion.LookRotation(hit.normal); //포인터가 항상 카메라를 바라보도록
+
+
+
         }
         else
         {
             pointer.transform.position = tr.position + (tr.forward * range); //물체에 맞지 않았을 때 포인터의 위치는 라인 끝점에
             pointer.transform.rotation = Quaternion.LookRotation(tr.forward);
+
         }
+
+
+
+
     }
     void EnterObject()
     {
@@ -191,6 +223,6 @@ public class LaserCaster : MonoBehaviour
             ExecuteEvents.Execute(prevText, data, ExecuteEvents.pointerExitHandler);
             prevText = null;
         }
-    }    
+    }
 
 }
